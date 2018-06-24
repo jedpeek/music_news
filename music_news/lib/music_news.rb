@@ -1,5 +1,2 @@
-require "music_news/version"
-
-module MusicNews
-  # Your code goes here...
-end
+require_relative "music_news/version"
+require_relative "music_news/cli"
