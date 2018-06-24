@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/music_news'
+require "bundler/setup"
+require "music_news"
+
 
 MusicNews::CLI.new.call
-MusicNews::CLI.new.list_stories

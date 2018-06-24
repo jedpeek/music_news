@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Jed Peek'"]
   spec.email         = ["'jedpeek@yahoo.com'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Calls on New York Times Arts page and returns top 3 music stories.}
+  spec.description   = %q{Calls on New York Times Arts page and returns top 3 music stories.}
+  spec.homepage      = "https://github.com/jedpeek/cli-data-gem-assessment-v-000/tree/master"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
