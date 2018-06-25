@@ -2,24 +2,40 @@ class MusicNews::CLI
   attr_accessor :stories
 
     def call
-      puts "Welcome to todays top music stories \n
-  from one of the worlds most trusted \n
-  news sources."
+      puts "Welcome to todays top music stories"
+      puts "from one of the worlds most trusted"
+      puts "news sources."
+      puts "Which story would you like to read? please enter number 1-3, list to see stories or type quit to leave."
+  MusicNews::Scraper.new.scrape
   list_stories
   option
+
   end
 
   def list_stories
-    @stories = MusicNews::Stories.story
+    @stories = MusicNews::Stories.scrape_top_3
     @stories.each.with_index(1){|story, i| puts "#{i}. #{story.headline}"}
   end
 
   def option
-    puts "Which story would you like to read? please enter number 1-3, list to see stories or type quit to leave."
     input = gets.strip.downcase
 
     if input.to_i > 0 && input.to_i <= @stories.length
-    puts  @stories[input.to_i - 1].headline
+    puts  "#{@stories[input.to_i - 1].headline} by #{@stories[input.to_i - 1].author}"
+    puts "#{@stories[input.to_i - 1].synopsis}"
+    puts  "\n"
+     puts "Would you like to read more?(y/n)"
+     answer = gets.strip.downcase
+     if answer == "y"
+       list_stories
+       option
+     elsif
+       answer == "n"
+       quit
+     end
+
+
+
   #    puts "1. Vinnie Paul, Pantera Drummer and Heavy Metal Innovator, Is Dead at 54"
   #  elsif input.to_i == 2
   #    @deals[1]
