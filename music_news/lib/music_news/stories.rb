@@ -11,13 +11,13 @@ class MusicNews::Stories
     while i < 3
     story = self.new
 
-    story.headline = doc.css("ol").css(".story-body .headline")[i].text.strip #headline
-    story.author = doc.css("ol").css(".story-body .author")[i].text.strip.gsub("By ", '') #author
-    story.url = doc.css("ol").css(".story-body .headline a")[i]['href'] #url to article
-    story.synopsis = doc.css("ol").css(".story-body p")[i].text.strip #summary/synopsis
+    story.headline = doc.css("ol").css(".story-meta h2")[i].text.strip #headline
+    story.author = doc.css("ol").css(".story-meta .byline")[i].text.strip.gsub("By ", '') #author
+    story.url = doc.css("ol").css(".story-body .story-link")[i]['href'] #url to article
+    story.synopsis = doc.css("ol").css(".story-meta .summary")[i].text.strip #summary/synopsis
     stories << story
     i += 1
+      end
+    stories
     end
-  stories
-  end
 end

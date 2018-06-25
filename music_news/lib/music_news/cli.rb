@@ -6,11 +6,9 @@ class MusicNews::CLI
       puts "from one of the worlds most trusted"
       puts "news sources."
       puts "Which story would you like to read? please enter number 1-3, list to see stories or type quit to leave."
-  MusicNews::Scraper.new.scrape
-  list_stories
-  option
-
-  end
+      list_stories
+      option
+    end
 
   def list_stories
     @stories = MusicNews::Stories.scrape_top_3
@@ -24,25 +22,28 @@ class MusicNews::CLI
     puts  "#{@stories[input.to_i - 1].headline} by #{@stories[input.to_i - 1].author}"
     puts "#{@stories[input.to_i - 1].synopsis}"
     puts  "\n"
-     puts "Would you like to read more?(y/n)"
+    puts "Would you like to read more?(y/n)"
      answer = gets.strip.downcase
+
      if answer == "y"
-       list_stories
-       option
+       puts "To read more go to: #{@stories[input.to_i - 1].url}"
+       puts "To leave type: quit"
+       puts "To list stories type: list"
+        input = gets.chomp
+
+        if input == "quit"
+          quit
+        elsif input == "list"
+          list_stories
+          option
+          puts "\n"
+        end
+
      elsif
        answer == "n"
        quit
      end
 
-
-
-  #    puts "1. Vinnie Paul, Pantera Drummer and Heavy Metal Innovator, Is Dead at 54"
-  #  elsif input.to_i == 2
-  #    @deals[1]
-  #    puts "2. XXXTentacion’s Killers Tracked Him as He Entered Motorcycle Dealership"
-  #  elsif input.to_i == 3
-  #    @deals[2]
-  #     puts "3. Rebecca Parris, Jazz Singer, Is Dead at 66"
     elsif
       input == "quit"
       quit
