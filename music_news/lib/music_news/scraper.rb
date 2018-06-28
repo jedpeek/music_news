@@ -1,2 +1,3 @@
 class MusicNews::Scraper
+  
 end
