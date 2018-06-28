@@ -1,8 +1,6 @@
 # MusicNews
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/music_news`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Music_news gathers the 10 newest music stories from NPR and displays them in your terminal.
 
 ## Installation
 
@@ -21,8 +19,7 @@ Or install it yourself as:
     $ gem install music_news
 
 ## Usage
-
-TODO: Write usage instructions here
+After launch you will be instructed to enter a number 1-10 or use the command 'list' to relist the stories available, or 'quit' to exit the program. After selecting a story based on it's number in the ordered list you will be prompted to to enter 'y' or 'n' to either receive more information on a the chosen story or relist the stories.
 
 ## Development
 

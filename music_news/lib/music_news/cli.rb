@@ -53,6 +53,10 @@ class MusicNews::CLI
       puts "To list stories type: list"
       option
     elsif answer == "n"
+      list_stories
+      option
+      puts "\n"
+    elsif answer == "quit"
       quit
     else
       puts "Sorry, I don't understand. Please enter y or n"
