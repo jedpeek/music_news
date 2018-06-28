@@ -23,38 +23,42 @@ class MusicNews::CLI
   end
 
   def option
-    input = gets.strip.downcase
+    @input = gets.strip.downcase
 
-    if input == "quit"
+    if @input == "quit"
        quit
 
-    elsif input == "list"
+    elsif @input == "list"
        list_stories
        option
        puts "\n"
 
-     elsif input.to_i.between?(1, @stories.length) #> 0 && input.to_i <= @stories.length
-      puts  "#{@stories[input.to_i - 1].headline}"
-      puts "#{@stories[input.to_i - 1].synopsis}"
+   elsif @input.to_i.between?(1, @stories.length) #> 0 && input.to_i <= @stories.length
+      puts  "#{@stories[@input.to_i - 1].headline}"
+      puts "#{@stories[@input.to_i - 1].synopsis}"
       puts  "\n"
       puts "Would you like to read more?(y/n)"
-       answer = gets.strip.downcase
+       option_2
+     else
+       puts "Sorry, I don't understand. Please enter 1-10, list, or quit."
+       option
+     end
+   end
 
-       if answer == "y"
-         puts "To read more go to: #{@stories[input.to_i - 1].url}"
-         puts "To leave type: quit"
-         puts "To list stories type: list"
-         option
-
-       elsif input == "quit"
-            quit
-
-        else
-          puts "Sorry, I don't understand."
-          option
-        end
-      end
+  def option_2
+    answer = gets.strip.downcase
+    if answer == "y"
+      puts "To read more go to: #{@stories[@input.to_i - 1].url}"
+      puts "To leave type: quit"
+      puts "To list stories type: list"
+      option
+    elsif answer == "n"
+      quit
+    else
+      puts "Sorry, I don't understand. Please enter y or n"
+      option_2
     end
+  end
 
   def quit
     puts "Thanks for stopping by. KEEP ON ROCKING!"
