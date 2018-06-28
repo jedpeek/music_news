@@ -1,6 +1,3 @@
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
 
 class MusicNews::Stories
   attr_accessor :headline, :author, :url, :synopsis

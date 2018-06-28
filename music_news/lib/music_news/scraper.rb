@@ -1,0 +1,2 @@
+class MusicNews::Scraper
+end
