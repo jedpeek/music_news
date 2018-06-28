@@ -2,6 +2,7 @@ class MusicNews::CLI
   attr_accessor :stories
 
   def call
+    MusicNews::Story.construct_stories
     puts "Welcome to todays top 10 music stories"
     puts "from one of the worlds most trusted"
     puts "news sources."
@@ -17,7 +18,7 @@ class MusicNews::CLI
   end
 
   def list_stories
-    @stories = MusicNews::Stories.scrape_stories
+    @stories = MusicNews::Story.all
     @stories.each.with_index(1){|story, i| puts "#{i}. #{story.headline}"}
   end
 
