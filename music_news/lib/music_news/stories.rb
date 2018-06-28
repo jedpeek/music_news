@@ -7,17 +7,17 @@ class MusicNews::Stories
 
     def self.scrape_stories
       stories = []
-      doc = Nokogiri::HTML(open("https://www.nytimes.com/section/arts/music"))
+      doc = Nokogiri::HTML(open("https://www.npr.org/sections/music-news/"))
       i = 0
 
       while i < 10
       story = self.new
 
-      story.headline = doc.css("ol").css(".story-meta h2")[i].text.strip #headline
-      story.author = doc.css("ol").css(".story-meta .byline")[i].text.strip.gsub("By ", '') #author
-      story.url = doc.css("ol").css(".story-body .story-link")[i]['href'] #url to article
-      story.synopsis = doc.css("ol").css(".story-meta .summary")[i].text.strip #summary/synopsis
-      
+      story.headline = doc.css(".item .item-info h2.title")[i].text.strip #headline
+      #story.author = doc.css("ol").css(".story-meta .byline")[i].text.strip.gsub("By ", '') #author
+      story.url = doc.css(".item .item-info .teaser a")[i]['href'] #url to article
+      story.synopsis = doc.css(".item .item-info .teaser")[i].text.strip #summary/synopsis
+
       stories << story
       i += 1
         end

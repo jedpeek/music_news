@@ -33,7 +33,7 @@ class MusicNews::CLI
        puts "\n"
 
      elsif input.to_i.between?(1, @stories.length) #> 0 && input.to_i <= @stories.length
-      puts  "#{@stories[input.to_i - 1].headline} by #{@stories[input.to_i - 1].author}"
+      puts  "#{@stories[input.to_i - 1].headline}"
       puts "#{@stories[input.to_i - 1].synopsis}"
       puts  "\n"
       puts "Would you like to read more?(y/n)"
